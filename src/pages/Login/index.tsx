@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Box, FormControl, TextField } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Outside from '../../layouts/Outside';
 import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
@@ -87,7 +88,9 @@ const Login: React.FC = () => {
 
         <CallToPage>
           Não tem cadastro ainda?
-          <span> clique aqui!</span>
+          <Link to="/register">
+            <span> clique aqui!</span>
+          </Link>
         </CallToPage>
       </Box>
     </Outside>
