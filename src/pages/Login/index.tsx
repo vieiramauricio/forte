@@ -6,13 +6,14 @@ import { Box, FormControl, TextField } from '@material-ui/core';
 import Outside from '../../layouts/Outside';
 import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
-import MessageWrapper from '../../components/MessageWrapper';
-import ValidateMessage from '../../components/ValidateMessage';
+import {
+  MessageWrapper,
+  ValidateMessage,
+  CallToPage,
+} from '../../components/Message';
 
-import IFormData from '../../contracts/Form/data.interface';
+import IFormData from '../../interfaces/Form/data.interface';
 import api from '../../services/api';
-
-import { CallToPage } from './styles';
 
 const Login: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
@@ -21,6 +22,7 @@ const Login: React.FC = () => {
     try {
       const res = await api.post('/login', data);
       console.log(res);
+      reset();
     } catch (e) {
       console.log(e);
     }
@@ -47,7 +49,7 @@ const Login: React.FC = () => {
               rules={{ required: true, minLength: 3, maxLength: 30 }}
             />
             <MessageWrapper>
-              {errors.user && (
+              {errors.username && (
                 <ValidateMessage>
                   Mínimo 3 e máximo 30 caracteres!
                 </ValidateMessage>

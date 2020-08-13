@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import authReducer from './reducer';
-import { IAuth } from '../../contracts/Auth/Action/login.interface';
+import { IAuth } from '../../interfaces/Auth/Action/login.interface';
 
 const initialState: IAuth = {
   token: '',

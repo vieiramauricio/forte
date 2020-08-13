@@ -1,12 +1,16 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Box, FormControl, TextField } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Outside from '../../layouts/Outside';
 import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
-import MessageWrapper from '../../components/MessageWrapper';
-import ValidateMessage from '../../components/ValidateMessage';
-import IFormData from '../../contracts/Form/data.interface';
+import {
+  MessageWrapper,
+  ValidateMessage,
+  CallToPage,
+} from '../../components/Message';
+import IFormData from '../../interfaces/Form/data.interface';
 import api from '../../services/api';
 
 const Register: React.FC = () => {
@@ -15,9 +19,10 @@ const Register: React.FC = () => {
   const handleForm = async (data: IFormData) => {
     try {
       const res = await api.post('/register', data);
-      console.log(res);
+      reset();
     } catch (e) {
       console.log(e);
+      reset();
     }
   };
   return (
@@ -65,7 +70,7 @@ const Register: React.FC = () => {
                 }
               />
               <MessageWrapper>
-                {errors.user && (
+                {errors.username && (
                   <ValidateMessage>
                     Mínimo 3 e máximo 30 caracteres!
                   </ValidateMessage>
@@ -101,6 +106,13 @@ const Register: React.FC = () => {
               Cadastrar
             </ButtonWrapper>
           </Box>
+
+          <CallToPage>
+            Já tem cadastro?
+            <Link to="/">
+              <span> clique aqui!</span>
+            </Link>
+          </CallToPage>
         </Box>
       </Box>
     </Outside>

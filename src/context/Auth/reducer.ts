@@ -1,4 +1,4 @@
-import { ILogin, IAuth } from '../../contracts/Auth/Action/login.interface';
+import { ILogin, IAuth } from '../../interfaces/Auth/Action/login.interface';
 
 const authReducer = (state: IAuth, action: ILogin) => {
   switch (action.type) {
