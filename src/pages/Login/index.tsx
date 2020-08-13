@@ -3,6 +3,7 @@ import { Box, FormControl, TextField } from '@material-ui/core';
 import Outside from '../../layouts/Outside';
 import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
+import { CallToPage } from './styles';
 
 const Login: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Login: React.FC = () => {
           <span> melhorar São Paulo?</span>
         </Title>
 
-        <Box component="div">
+        <Box component="form">
           <FormControl fullWidth variant="outlined">
             <TextField id="nome" label="Usuário" variant="outlined" />
           </FormControl>
@@ -30,6 +31,11 @@ const Login: React.FC = () => {
             </ButtonWrapper>
           </Box>
         </Box>
+
+        <CallToPage>
+          Não tem cadastro ainda?
+          <span> clique aqui!</span>
+        </CallToPage>
       </Box>
     </Outside>
   );
