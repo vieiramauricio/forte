@@ -1,4 +1,4 @@
-export default interface FormData {
+export default interface IFormData {
   email?: string;
   username?: string;
   password?: string;
