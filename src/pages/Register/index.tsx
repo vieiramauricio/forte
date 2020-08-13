@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Box, FormControl, TextField } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import Outside from '../../layouts/Outside';
 import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
@@ -13,13 +13,16 @@ import {
 import IFormData from '../../interfaces/Form/data.interface';
 import api from '../../services/api';
 
-const Register: React.FC = () => {
+type PropsInterface = RouteComponentProps<any>;
+
+const Register: React.FC<PropsInterface> = ({ history }) => {
   const { control, handleSubmit, errors, reset } = useForm();
 
   const handleForm = async (data: IFormData) => {
     try {
       const res = await api.post('/register', data);
       reset();
+      history.push('/');
     } catch (e) {
       console.log(e);
       reset();
