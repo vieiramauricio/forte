@@ -5,10 +5,10 @@ export const Container = styled.section`
   max-width: 1200px;
   margin: 64px auto 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   .row {
-    width: 48%;
+    width: 45%;
     max-width: 100%;
     svg {
       max-width: 100%;
@@ -26,7 +26,10 @@ export const Container = styled.section`
     margin-top: 32px;
     .row {
       svg {
-        display: none;
+        max-width: 80%;
+        height: auto;
+        margin: 30px auto 0 auto;
+        display: block;
       }
     }
   }
