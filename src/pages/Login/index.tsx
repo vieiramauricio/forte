@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
@@ -15,13 +15,23 @@ import {
 import IFormData from '../../interfaces/Form/data.interface';
 import api from '../../services/api';
 
+import { AuthStore } from '../../context/Auth';
+import { login } from '../../context/Auth/actions';
+
 const Login: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
+  const { state, dispatch } = useContext(AuthStore);
 
   const handleForm = async (data: IFormData) => {
     try {
       const res = await api.post('/login', data);
-      console.log(res);
+      if (res.data.token) {
+        console.log(res);
+        login(dispatch, {
+          token: res.data.token,
+          signed: true,
+        });
+      }
       reset();
     } catch (e) {
       console.log(e);
