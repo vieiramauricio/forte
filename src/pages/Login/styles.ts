@@ -15,3 +15,15 @@ export const CallToPage = styled.span`
     }
   }
 `;
+export const MessageWrapper = styled.div`
+  padding: 3px 0;
+  position: relative;
+`;
+export const ValidateMessage = styled.span`
+  display: block;
+  /* font-weight: bold; */
+  color: #ff0000;
+  position: absolute;
+  text-align: center;
+  font-size: 12px;
+`;
