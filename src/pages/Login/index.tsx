@@ -8,13 +8,18 @@ import { CallToPage } from './styles';
 import MessageWrapper from '../../components/MessageWrapper';
 import ValidateMessage from '../../components/ValidateMessage';
 import FormData from '../../contracts/FormData';
+import api from '../../services/api';
 
 const Login: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
 
-  const handleForm = (data: FormData): void => {
-    console.log(data);
-    reset();
+  const handleForm = async (data: FormData) => {
+    try {
+      const res = await api.post('/login', data);
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -30,7 +35,7 @@ const Login: React.FC = () => {
             <Controller
               as={TextField}
               type="text"
-              name="user"
+              name="username"
               label="Usuário"
               variant="outlined"
               control={control}

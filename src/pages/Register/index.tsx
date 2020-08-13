@@ -7,15 +7,19 @@ import ButtonWrapper from '../../components/Button';
 import MessageWrapper from '../../components/MessageWrapper';
 import ValidateMessage from '../../components/ValidateMessage';
 import FormData from '../../contracts/FormData';
+import api from '../../services/api';
 
 const Register: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
 
-  const handleForm = (data: FormData): void => {
-    console.log(data);
-    reset();
+  const handleForm = async (data: FormData) => {
+    try {
+      const res = await api.post('/register', data);
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+    }
   };
-
   return (
     <Outside>
       <Box component="form" onSubmit={handleSubmit(handleForm)}>
@@ -48,7 +52,7 @@ const Register: React.FC = () => {
               <Controller
                 as={TextField}
                 type="text"
-                name="user"
+                name="username"
                 label="Usuário"
                 variant="outlined"
                 control={control}
