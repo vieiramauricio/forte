@@ -1,20 +1,23 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Box, FormControl, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+
+import { Box, FormControl, TextField } from '@material-ui/core';
 import Outside from '../../layouts/Outside';
 import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
-import { CallToPage } from './styles';
 import MessageWrapper from '../../components/MessageWrapper';
 import ValidateMessage from '../../components/ValidateMessage';
-import FormData from '../../contracts/FormData';
+
+import IFormData from '../../contracts/Form/data.interface';
 import api from '../../services/api';
+
+import { CallToPage } from './styles';
 
 const Login: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
 
-  const handleForm = async (data: FormData) => {
+  const handleForm = async (data: IFormData) => {
     try {
       const res = await api.post('/login', data);
       console.log(res);
@@ -42,11 +45,6 @@ const Login: React.FC = () => {
               control={control}
               defaultValue=""
               rules={{ required: true, minLength: 3, maxLength: 30 }}
-              style={
-                errors.user && {
-                  borderColor: '#ff0000',
-                }
-              }
             />
             <MessageWrapper>
               {errors.user && (

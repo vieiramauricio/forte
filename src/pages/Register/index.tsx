@@ -6,13 +6,13 @@ import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
 import MessageWrapper from '../../components/MessageWrapper';
 import ValidateMessage from '../../components/ValidateMessage';
-import FormData from '../../contracts/FormData';
+import IFormData from '../../contracts/Form/data.interface';
 import api from '../../services/api';
 
 const Register: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
 
-  const handleForm = async (data: FormData) => {
+  const handleForm = async (data: IFormData) => {
     try {
       const res = await api.post('/register', data);
       console.log(res);
