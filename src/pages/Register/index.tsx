@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Box, FormControl, TextField } from '@material-ui/core';
 import { Link, RouteComponentProps } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Outside from '../../layouts/Outside';
 import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
@@ -17,16 +18,21 @@ type PropsInterface = RouteComponentProps<any>;
 
 const Register: React.FC<PropsInterface> = ({ history }) => {
   const { control, handleSubmit, errors, reset } = useForm();
+  const [loading, setLoading] = useState(false);
 
   const handleForm = async (data: IFormData) => {
+    setLoading(true);
     try {
       const res = await api.post('/register', data);
-      reset();
+
+      toast.success('Cadastrado com sucesso');
+
       history.push('/');
     } catch (e) {
-      console.log(e);
+      toast.error('Algo deu errado...');
       reset();
     }
+    setLoading(false);
   };
   return (
     <Outside>
@@ -105,7 +111,7 @@ const Register: React.FC<PropsInterface> = ({ history }) => {
           </Box>
 
           <Box component="div" mt={2}>
-            <ButtonWrapper color="primary" size="100%">
+            <ButtonWrapper color="primary" size="100%" loading={loading}>
               Cadastrar
             </ButtonWrapper>
           </Box>

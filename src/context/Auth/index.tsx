@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer, useEffect, useContext } from 'react';
 import authReducer from './reducer';
 import { IAuth } from '../../interfaces/Auth/Action/login.interface';
 
@@ -26,5 +26,10 @@ const GlobalAuth: React.FC = ({ children }) => {
   );
 };
 
-export { AuthStore };
+function useAuth() {
+  const context = useContext(AuthStore);
+  return context;
+}
+
+export { useAuth };
 export default GlobalAuth;
