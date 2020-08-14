@@ -1,16 +1,11 @@
 import React from 'react';
 import { CircularProgress } from '@material-ui/core';
 import Button from './styles';
+import IButton from '../../interfaces/Button/button.interface';
 
-interface ButtonProps {
-  color: string;
-  size: string;
-  loading: boolean;
-}
-
-const ButtonWrapper: React.FC<ButtonProps> = props => {
+const ButtonWrapper: React.FC<IButton> = props => {
   return (
-    <Button {...props}>
+    <Button {...props} onClick={props.handle}>
       {props.loading ? (
         <CircularProgress size="10px" color="inherit" />
       ) : (

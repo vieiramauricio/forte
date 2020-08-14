@@ -7,7 +7,7 @@ export const TitleWrapper = styled.h1`
   line-height: 115%;
   margin-bottom: 20px;
   span {
-    color: #16d32c;
+    color: #88b82f;
   }
   @media (max-width: 760px) {
     font-size: 38px;
