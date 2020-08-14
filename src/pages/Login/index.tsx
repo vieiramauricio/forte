@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 import { Box, FormControl, TextField } from '@material-ui/core';
+import { toast } from 'react-toastify';
+
 import Outside from '../../layouts/Outside';
 import Title from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
@@ -15,17 +17,29 @@ import {
 import IFormData from '../../interfaces/Form/data.interface';
 import api from '../../services/api';
 
+import { useAuth } from '../../context/Auth';
+import { login } from '../../context/Auth/actions';
+
 const Login: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
+  const [loading, setLoading] = useState(false);
+  const { dispatch } = useAuth();
 
   const handleForm = async (data: IFormData) => {
+    setLoading(true);
     try {
       const res = await api.post('/login', data);
-      console.log(res);
-      reset();
+      if (res.data.token) {
+        login(dispatch, {
+          token: res.data.token,
+          signed: true,
+        });
+      }
     } catch (e) {
-      console.log(e);
+      toast.error('Algo deu errado...');
+      reset();
     }
+    setLoading(false);
   };
 
   return (
@@ -80,7 +94,7 @@ const Login: React.FC = () => {
           </Box>
 
           <Box component="div" mt={2} mb={1}>
-            <ButtonWrapper color="primary" size="100%">
+            <ButtonWrapper color="primary" size="100%" loading={loading}>
               Login
             </ButtonWrapper>
           </Box>

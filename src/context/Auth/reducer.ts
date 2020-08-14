@@ -4,6 +4,7 @@ const authReducer = (state: IAuth, action: ILogin) => {
   switch (action.type) {
     case 'LOGIN':
       return {
+        ...state,
         token: action.payload.token,
         signed: action.payload.signed,
       };
