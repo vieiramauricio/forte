@@ -10,13 +10,12 @@ const Route: React.FC<RouteProps> = ({
   ...props
 }) => {
   const { state } = useAuth();
-  const { signed } = state;
 
   return (
     <ReactDOMRoute
       {...props}
       render={() => {
-        return isPrivate === signed ? (
+        return isPrivate === state.signed ? (
           <Component />
         ) : (
           <Redirect to={{ pathname: isPrivate ? '/' : '/dashboard' }} />

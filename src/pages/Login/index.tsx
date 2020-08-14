@@ -22,7 +22,7 @@ import { login } from '../../context/Auth/actions';
 
 const Login: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const { dispatch } = useAuth();
 
   const handleForm = async (data: IFormData) => {
