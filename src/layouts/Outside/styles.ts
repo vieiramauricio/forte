@@ -10,7 +10,7 @@ export const Container = styled.section`
   .row {
     width: 45%;
     max-width: 100%;
-    svg {
+    & > svg {
       max-width: 100%;
       width: 100%;
     }
@@ -25,7 +25,7 @@ export const Container = styled.section`
   @media (max-width: 760px) {
     margin-top: 32px;
     .row {
-      svg {
+      & > svg {
         max-width: 80%;
         height: auto;
         margin: 30px auto 0 auto;

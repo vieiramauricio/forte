@@ -19,13 +19,13 @@ const CallToPage = styled.span`
   font-weight: bold;
   margin-top: 20px;
   span {
-    color: #16d32c;
+    color: #88b82f;
     /* text-decoration: underline; */
     cursor: pointer;
     transition: all 0.3s ease-in;
 
     &:hover {
-      color: #0eba22;
+      color: #96be4b;
     }
   }
 `;
