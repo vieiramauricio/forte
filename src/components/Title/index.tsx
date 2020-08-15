@@ -15,12 +15,12 @@ export const PrincipalTitle = styled.h1`
 `;
 
 export const Subtitle = styled.h2`
-font-size: 36px;
-color: #1F1F1F;
-line-height: 115%;
-margin-bottom: 20px;
-span {
-  color: #88b82f;
-  font-weight: bold;
-}
+  font-size: 36px;
+  color: #1F1F1F;
+  line-height: 115%;
+  margin-bottom: 20px;
+  span {
+    color: #88b82f;
+    font-weight: bold;
+  }
 `;

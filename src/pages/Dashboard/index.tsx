@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Inside from '../../layouts/Inside';
 import { useAuth } from '../../context/Auth';
 import { Subtitle } from '../../components/Title';
 import { Box, TextField } from '@material-ui/core';
 import ButtonWrapper from '../../components/Button';
+import List from '../../components/Opinions/List';
+import api from '../../services/api';
 
 
 const Dashboard: React.FC = () => {
   const { state } = useAuth();
+  const { token } = state;
+  const [opinions, setOpinions] = useState([]);
+
+  const getOpinions =  async () =>{
+    try{
+      const res = await api.get('/opinions');
+      setOpinions(res.data.opinions);
+    }catch(e){
+      console.log(e)
+    }
+  }
+  useEffect(() => {
+    getOpinions();
+  }, [])
+
   return (
     <Inside>
       <Subtitle>
@@ -32,6 +49,10 @@ const Dashboard: React.FC = () => {
         <ButtonWrapper color="primary" size="100px">
           Buscar
         </ButtonWrapper>
+      </Box>
+
+      <Box>
+        <List opinionList={opinions}/>
       </Box>
 
     </Inside>
