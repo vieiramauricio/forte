@@ -47,8 +47,8 @@ const Login: React.FC = () => {
     <Outside>
       <Box component="div" m={1}>
         <PrincipalTitle>
-          Pronto para
-          <span> melhorar São Paulo?</span>
+          Pronto para melhorar
+          <span> São Paulo</span>?
         </PrincipalTitle>
 
         <Box component="form" onSubmit={handleSubmit(handleForm)}>

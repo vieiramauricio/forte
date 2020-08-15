@@ -3,10 +3,20 @@ import { useForm, Controller } from 'react-hook-form';
 import Inside from '../../layouts/Inside';
 import { useAuth } from '../../context/Auth';
 import { Subtitle } from '../../components/Title';
-import { Box, TextField, InputAdornment, Modal, Backdrop, Fade, FormControl, TextareaAutosize } from '@material-ui/core';
+import {
+  Box,
+  TextField,
+  InputAdornment,
+  Modal,
+  Backdrop,
+  Fade,
+  FormControl,
+  TextareaAutosize,
+} from '@material-ui/core';
 import { Search } from '@material-ui/icons';
 import ButtonWrapper from '../../components/Button';
 import { ModalWrapper } from '../../components/Modal';
+import Skeletons from '../../components/Skeletons';
 import List from '../../components/Opinions/List';
 import api from '../../services/api';
 import IOpinion from '../../interfaces/Opinion/opinion.interface';
@@ -24,6 +34,7 @@ const Dashboard: React.FC = () => {
   const { token } = state;
   const [opinions, setOpinions] = useState([]);
   const [view, setView] = useState([]);
+  const [skeleton, setSkeleton] = useState(true);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -36,6 +47,7 @@ const Dashboard: React.FC = () => {
     }catch(e){
       console.log(e)
     }
+    setSkeleton(false);
   }
 
   const handleFilter = (title: string) => {
@@ -171,7 +183,13 @@ const Dashboard: React.FC = () => {
       </Box>
 
       <Box>
-        <List opinionList={view}/>
+        {skeleton
+          ?
+            <Skeletons/>
+          :
+            <List opinionList={view}/>
+        }
+
       </Box>
 
     </Inside>

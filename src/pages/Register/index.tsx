@@ -38,8 +38,7 @@ const Register: React.FC<PropsInterface> = ({ history }) => {
     <Outside>
       <Box component="form" onSubmit={handleSubmit(handleForm)}>
         <PrincipalTitle>
-          Pronto para
-          <span> melhorar São Paulo?</span>
+          Vem com a gente <span>melhorar</span> a nossa cidade!
         </PrincipalTitle>
 
         <Box component="div">
