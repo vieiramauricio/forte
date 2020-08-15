@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Illustration } from '../../assets/img/svg-growth.svg';
+import { ReactComponent as Illustration } from '../../assets/img/task.svg';
 import { Container } from './styles';
 import Navbar from '../../components/Navbar';
 
