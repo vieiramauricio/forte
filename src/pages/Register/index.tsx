@@ -13,6 +13,7 @@ import {
 } from '../../components/Message';
 import IFormData from '../../interfaces/Form/data.interface';
 import api from '../../services/api';
+import { Slide } from "react-awesome-reveal";
 
 type PropsInterface = RouteComponentProps<any>;
 
@@ -36,7 +37,8 @@ const Register: React.FC<PropsInterface> = ({ history }) => {
   };
   return (
     <Outside>
-      <Box component="form" onSubmit={handleSubmit(handleForm)}>
+      <Slide direction="left">
+        <Box component="form" onSubmit={handleSubmit(handleForm)}>
         <PrincipalTitle>
           Vem com a gente <span>melhorar</span> a nossa cidade!
         </PrincipalTitle>
@@ -123,6 +125,7 @@ const Register: React.FC<PropsInterface> = ({ history }) => {
           </CallToPage>
         </Box>
       </Box>
+      </Slide>
     </Outside>
   );
 };

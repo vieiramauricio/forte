@@ -19,6 +19,7 @@ import api from '../../services/api';
 
 import { useAuth } from '../../context/Auth';
 import { login } from '../../context/Auth/actions';
+import { Slide } from "react-awesome-reveal";
 
 const Login: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
@@ -45,7 +46,8 @@ const Login: React.FC = () => {
 
   return (
     <Outside>
-      <Box component="div" m={1}>
+      <Slide direction="left">
+        <Box component="div" m={1}>
         <PrincipalTitle>
           Pronto para melhorar
           <span> São Paulo</span>?
@@ -108,6 +110,7 @@ const Login: React.FC = () => {
           </Link>
         </CallToPage>
       </Box>
+      </Slide>
     </Outside>
   );
 };
