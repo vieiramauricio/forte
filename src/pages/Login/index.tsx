@@ -6,7 +6,7 @@ import { Box, FormControl, TextField } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
 import Outside from '../../layouts/Outside';
-import Title from '../../components/Title';
+import { PrincipalTitle } from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
 import {
   MessageWrapper,
@@ -19,6 +19,7 @@ import api from '../../services/api';
 
 import { useAuth } from '../../context/Auth';
 import { login } from '../../context/Auth/actions';
+import { Slide } from "react-awesome-reveal";
 
 const Login: React.FC = () => {
   const { control, handleSubmit, errors, reset } = useForm();
@@ -45,11 +46,12 @@ const Login: React.FC = () => {
 
   return (
     <Outside>
-      <Box component="div" m={1}>
-        <Title>
-          Pronto para
-          <span> melhorar São Paulo?</span>
-        </Title>
+      <Slide direction="left">
+        <Box component="div" m={1}>
+        <PrincipalTitle>
+          Pronto para melhorar
+          <span> São Paulo</span>?
+        </PrincipalTitle>
 
         <Box component="form" onSubmit={handleSubmit(handleForm)}>
           <FormControl fullWidth variant="outlined">
@@ -108,6 +110,7 @@ const Login: React.FC = () => {
           </Link>
         </CallToPage>
       </Box>
+      </Slide>
     </Outside>
   );
 };

@@ -4,7 +4,7 @@ import { Box, FormControl, TextField } from '@material-ui/core';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Outside from '../../layouts/Outside';
-import Title from '../../components/Title';
+import { PrincipalTitle } from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
 import {
   MessageWrapper,
@@ -13,6 +13,7 @@ import {
 } from '../../components/Message';
 import IFormData from '../../interfaces/Form/data.interface';
 import api from '../../services/api';
+import { Slide } from "react-awesome-reveal";
 
 type PropsInterface = RouteComponentProps<any>;
 
@@ -36,11 +37,11 @@ const Register: React.FC<PropsInterface> = ({ history }) => {
   };
   return (
     <Outside>
-      <Box component="form" onSubmit={handleSubmit(handleForm)}>
-        <Title>
-          Pronto para
-          <span> melhorar São Paulo?</span>
-        </Title>
+      <Slide direction="left">
+        <Box component="form" onSubmit={handleSubmit(handleForm)}>
+        <PrincipalTitle>
+          Vem com a gente <span>melhorar</span> a nossa cidade!
+        </PrincipalTitle>
 
         <Box component="div">
           <FormControl fullWidth variant="outlined">
@@ -124,6 +125,7 @@ const Register: React.FC<PropsInterface> = ({ history }) => {
           </CallToPage>
         </Box>
       </Box>
+      </Slide>
     </Outside>
   );
 };
