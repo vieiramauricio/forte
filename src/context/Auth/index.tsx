@@ -3,6 +3,7 @@ import authReducer from './reducer';
 import { IAuth } from '../../interfaces/Auth/Action/login.interface';
 
 const initialState: IAuth = {
+  username: '',
   token: '',
   signed: false,
 };

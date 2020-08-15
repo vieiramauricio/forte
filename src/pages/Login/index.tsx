@@ -29,8 +29,9 @@ const Login: React.FC = () => {
     setLoading(true);
     try {
       const res = await api.post('/login', data);
-      if (res.data.token) {
+      if (res.data.token && data.username) {
         login(dispatch, {
+          username: data.username.toString(),
           token: res.data.token,
           signed: true,
         });

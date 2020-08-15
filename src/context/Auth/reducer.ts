@@ -5,6 +5,7 @@ const authReducer = (state: IAuth, action: ILogin) => {
     case 'LOGIN':
       return {
         ...state,
+        username: action.payload.username,
         token: action.payload.token,
         signed: action.payload.signed,
       };
