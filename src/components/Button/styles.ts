@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 export default styled.button`
-  padding: 16px 0;
+  padding: 19px 0;
   text-transform: unset;
   background: ${props => (props.color === 'primary' ? '#88B82F' : '#1D1B27')};
   color: #fcfcfc;

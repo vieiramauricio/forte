@@ -4,7 +4,7 @@ import { Box, FormControl, TextField } from '@material-ui/core';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Outside from '../../layouts/Outside';
-import Title from '../../components/Title';
+import { PrincipalTitle } from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
 import {
   MessageWrapper,
@@ -37,10 +37,10 @@ const Register: React.FC<PropsInterface> = ({ history }) => {
   return (
     <Outside>
       <Box component="form" onSubmit={handleSubmit(handleForm)}>
-        <Title>
+        <PrincipalTitle>
           Pronto para
           <span> melhorar São Paulo?</span>
-        </Title>
+        </PrincipalTitle>
 
         <Box component="div">
           <FormControl fullWidth variant="outlined">

@@ -6,7 +6,7 @@ import { Box, FormControl, TextField } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
 import Outside from '../../layouts/Outside';
-import Title from '../../components/Title';
+import { PrincipalTitle } from '../../components/Title';
 import ButtonWrapper from '../../components/Button';
 import {
   MessageWrapper,
@@ -46,10 +46,10 @@ const Login: React.FC = () => {
   return (
     <Outside>
       <Box component="div" m={1}>
-        <Title>
+        <PrincipalTitle>
           Pronto para
           <span> melhorar São Paulo?</span>
-        </Title>
+        </PrincipalTitle>
 
         <Box component="form" onSubmit={handleSubmit(handleForm)}>
           <FormControl fullWidth variant="outlined">
