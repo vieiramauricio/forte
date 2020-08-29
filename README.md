@@ -48,4 +48,5 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
   $ yarn start
   ```
 Practical test for LOUD
+
 Made with 💛 by Mauricio Vieira 👋🏼 [Get in touch!](https://www.linkedin.com/in/vieira-mauricio/)
