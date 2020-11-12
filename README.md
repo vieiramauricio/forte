@@ -16,7 +16,7 @@
 
 ## 🚀 Technologies
 
-This project was developed from scratch with the following technologies:
+This project was developed from scratch with the following technologies
 
 -  [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 -  [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
